@@ -1,8 +1,8 @@
 import { init as initApm } from 'elastic-apm-js-base'
 
-let serviceName = process.env.ELASTIC_APM_JS_BASE_SERVICE_NAME
-let serviceVersion = process.env.ELASTIC_APM_JS_BASE_SERVICE_VERSION || null
-let serverUrl = process.env.ELASTIC_APM_JS_BASE_SERVER_URL
+let serviceName = window.ElasticApmJsBaseServiceName || process.env.ELASTIC_APM_JS_BASE_SERVICE_NAME
+let serviceVersion = window.ElasticApmJsBaseServiceVersion || process.env.ELASTIC_APM_JS_BASE_SERVICE_VERSION || null
+let serverUrl = window.ElasticApmJsBaseServerUrl || process.env.ELASTIC_APM_JS_BASE_SERVER_URL
 
 var apm = initApm({
   serviceName: serviceName,

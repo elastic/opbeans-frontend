@@ -19,7 +19,7 @@
     "css-loader": "^1.0.1",
     "detect-port": "1.0.1",
     "dotenv": "2.0.0",
-    "elastic-apm-js-base": "git+https://git@github.com/elastic/apm-agent-js-base.git",
+    "elastic-apm-rum": "file:elastic-apm-rum",
     "eslint": "^5.8.0",
     "eslint-config-react-app": "^0.5.0",
     "eslint-loader": "^2.1.1",
@@ -59,6 +59,7 @@
     "whatwg-fetch": "1.0.0"
   },
   "scripts": {
+    "preinstall": "if ! [ -d elastic-apm-rum ]; then git clone --single-branch --branch test-opbeans git@github.com:vigneshshanmugam/apm-agent-js-base.git elastic-apm-rum; fi",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"

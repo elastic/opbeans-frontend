@@ -1,19 +1,16 @@
 import React from 'react';
 import { Router, Route, IndexRedirect } from 'react-router';
+import { apm } from 'elastic-apm-js-base/src/index'
+
 import App from './components/App';
-
 import Dashboard from './components/Dashboard';
-
 import Product from './components/Product';
 import Products from './components/Products';
 import Orders from './components/Orders';
 import Order from './components/Order';
 import Customers from './components/Customers';
 import Customer from './components/Customer';
-
 import NotFound from './components/NotFound';
-
-var apm = require('elastic-apm-js-base/src/index').apm
 
 const Routes = (props) => (
   <Router {...props}>

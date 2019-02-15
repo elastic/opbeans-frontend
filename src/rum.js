@@ -1,6 +1,7 @@
 
 import { init as initApm } from 'elastic-apm-js-base/src/index'
 import { browserHistory } from 'react-router'
+import { patching } from 'elastic-apm-js-core'
 
 function changeRoute() {
     var links = Array.from(document.getElementsByTagName('a')).map((a) => {
@@ -55,7 +56,7 @@ rumConfig.logLevel = 'debug'
 
 var apm = initApm(rumConfig)
 
-var sub = require('elastic-apm-js-core').patching.subscription
+var sub = patching.subscription
 sub.subscribe(function (event, task) {
     var tr = apm.getCurrentTransaction()
     if (tr && event === 'schedule' && task.type === 'macroTask' && !task.id) {

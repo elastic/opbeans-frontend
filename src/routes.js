@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, IndexRedirect } from 'react-router';
-import { apm } from 'elastic-apm-js-base/src/index'
+import { apm } from '@elastic/apm-rum'
 
 import App from './components/App';
 import Dashboard from './components/Dashboard';

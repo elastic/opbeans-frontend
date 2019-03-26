@@ -1,7 +1,7 @@
 
-import { init as initApm } from 'elastic-apm-js-base/src/index'
+import { init as initApm } from '@elastic/apm-rum'
 import { browserHistory } from 'react-router'
-import { patching } from 'elastic-apm-js-core'
+import { patching } from '@elastic/apm-rum-core'
 
 function changeRoute() {
     var links = Array.from(document.getElementsByTagName('a')).map((a) => {

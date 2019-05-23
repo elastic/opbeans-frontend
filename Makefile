@@ -1,6 +1,4 @@
 
-PORT ?= 3001
-
 .PHONY: help
 .DEFAULT_GOAL := help
 

@@ -7,6 +7,6 @@ WORKDIR /app
 COPY . /app
 
 RUN yarn install \
-    && npm run-script build \
-    && rm -rf node_modules
+    && npm run-script build
+
 CMD ["npm", "run-script", "start"]

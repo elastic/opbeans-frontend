@@ -1,6 +1,6 @@
 ---
 - job:
-    name: apm-agent-frontend/opbeans-frontend-mbp
+    name: apm-agent-nodejs/opbeans-frontend-mbp
     display-name: Opbeans Frontend
     description: Opbeans Frontend
     project-type: multibranch

@@ -1,7 +1,7 @@
 
 import { init as initApm } from '@elastic/apm-rum'
 import { browserHistory } from 'react-router'
-import { patching } from '@elastic/apm-rum-core'
+import { patchSubscription } from '@elastic/apm-rum-core'
 
 function changeRoute() {
     var links = Array.from(document.getElementsByTagName('a')).map((a) => {
@@ -56,8 +56,7 @@ rumConfig.logLevel = 'debug'
 
 var apm = initApm(rumConfig)
 
-var sub = patching.subscription
-sub.subscribe(function (event, task) {
+patchSubscription.subscribe(function (event, task) {
     var tr = apm.getCurrentTransaction()
     if (tr && event === 'schedule' && task.type === 'macroTask' && !task.id) {
         var id = tr.addTask()

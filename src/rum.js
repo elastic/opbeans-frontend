@@ -1,7 +1,6 @@
 
 import { init as initApm } from '@elastic/apm-rum'
 import { browserHistory } from 'react-router'
-import { patchSubscription } from '@elastic/apm-rum-core'
 
 function changeRoute() {
     var links = Array.from(document.getElementsByTagName('a')).map((a) => {
@@ -55,17 +54,6 @@ if (!rumConfig.serviceVersion) {
 rumConfig.logLevel = 'debug'
 
 var apm = initApm(rumConfig)
-
-patchSubscription.subscribe(function (event, task) {
-    var tr = apm.getCurrentTransaction()
-    if (tr && event === 'schedule' && task.type === 'macroTask' && !task.id) {
-        var id = tr.addTask()
-        task.id = id
-    }
-    if (tr && event === 'invoke' && task.type === 'macroTask' && task.id) {
-        tr.removeTask(task.id)
-    }
-})
 
 const users = [
     { id: 1, username: 'arthurdent', email: 'arthur.dent@example.com' },

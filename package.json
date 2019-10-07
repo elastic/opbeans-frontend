@@ -61,7 +61,7 @@
   },
   "scripts": {
     "preinstall": "if ! [ -d elastic-apm-rum ]; then git clone https://github.com/elastic/apm-agent-js-base elastic-apm-rum; fi",
-    "postinstall": "npm install --prefix ./elastic-apm-rum && npx lerna run build --stream",
+    "postinstall": "npm install --prefix ./elastic-apm-rum --only dev --no-package-lock && npx lerna run build --stream",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"

@@ -60,8 +60,8 @@
     "whatwg-fetch": "1.0.0"
   },
   "scripts": {
-    "preinstall": "if ! [ -d elastic-apm-rum ]; then git clone https://github.com/elastic/apm-agent-js-base elastic-apm-rum; fi",
-    "postinstall": "npm install --prefix ./elastic-apm-rum --only dev --no-package-lock && npx lerna run build --stream",
+    "preinstall": "if ! [ -d elastic-apm-rum ]; then git clone https://github.com/elastic/apm-agent-rum-js elastic-apm-rum --depth 1; fi",
+    "postinstall": "npm install --prefix ./elastic-apm-rum --dev --prod --no-package-lock && npx lerna run build --stream",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"

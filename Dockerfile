@@ -1,4 +1,8 @@
-FROM node:latest
+FROM node:12-alpine
+
+RUN apk update && \
+    apk --no-cache add git && \
+    rm -rf /var/cache/apk/*
 
 ENV NODE_ENV=production
 ENV ELASTIC_APM_JS_BASE_SERVICE_NAME=opbeans-react

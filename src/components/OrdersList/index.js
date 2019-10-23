@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import { TableLoader, TableFiller } from '../TableLoader';
 import moment from 'moment';

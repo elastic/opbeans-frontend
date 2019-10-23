@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import { Link } from 'react-router';
+import { NavLink as Link } from 'react-router-dom';
 
 class AppFooter extends Component {
 

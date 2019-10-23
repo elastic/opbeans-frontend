@@ -1,0 +1,10 @@
+{
+    "products": "9",
+    "customers": "1000",
+    "orders": "3775",
+    "numbers": {
+        "revenue": 428816600,
+        "cost": 204086000,
+        "profit": 224730600
+    }
+}

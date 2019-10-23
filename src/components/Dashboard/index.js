@@ -14,7 +14,7 @@ class Dashboard extends Component {
 
   componentDidMount() {
       this.props.actions.loadProductsTop();
-      this.props.actions.loadStats();
+      this.props.actions.loadStatsSync();
   }
 
   componentWillUnmount() {

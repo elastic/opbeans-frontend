@@ -1,7 +1,8 @@
 import './rum'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { browserHistory } from 'react-router'
+import history from './history';
+
 import { Provider } from 'react-redux'
 
 import configureStore from './store/configureStore'
@@ -14,7 +15,7 @@ import './semantic-ui/semantic.min.css'
 
 ReactDOM.render(
   <Provider store={store}>
-    <Routes history={browserHistory} />
+    <Routes history={history} />
   </Provider>,
   document.getElementById('root')
 )

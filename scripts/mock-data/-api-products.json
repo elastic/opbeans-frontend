@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "sku": "OP-DRC-C1",
+        "name": "Brazil Verde, Italian Roast",
+        "stock": 80,
+        "type_name": "Dark Roast Coffee"
+    },
+    {
+        "id": 3,
+        "sku": "OP-LRC-C3",
+        "name": "Colombian Supremo, Cinnamon Roast",
+        "stock": 150,
+        "type_name": "Light Roast Coffee"
+    },
+    {
+        "id": 5,
+        "sku": "OP-MRC-C5",
+        "name": "Ethiopian Moka Java, Breakfast Roast",
+        "stock": 130,
+        "type_name": "Medium Roast Coffee"
+    },
+    {
+        "id": 6,
+        "sku": "OP-DRC-C6",
+        "name": "European Royale, French Roast",
+        "stock": 70,
+        "type_name": "Dark Roast Coffee"
+    },
+    {
+        "id": 4,
+        "sku": "OP-LRC-C4",
+        "name": "Guatemala Antigua, New England Roast",
+        "stock": 0,
+        "type_name": "Light Roast Coffee"
+    },
+    {
+        "id": 7,
+        "sku": "OP-MRC-C7",
+        "name": "Hawaiian Kona, Medium Roast",
+        "stock": 60,
+        "type_name": "Medium Roast Coffee"
+    },
+    {
+        "id": 8,
+        "sku": "OP-LRC-C8",
+        "name": "Papua New Guinea Arokara, Light City Roast",
+        "stock": 90,
+        "type_name": "Light Roast Coffee"
+    },
+    {
+        "id": 9,
+        "sku": "OP-DRC-C9",
+        "name": "Bali Blue Moon, French Roast",
+        "stock": 70,
+        "type_name": "Dark Roast Coffee"
+    },
+    {
+        "id": 2,
+        "sku": "OP-MRC-C2",
+        "name": "Jamaica Blue Mountain, Vienna Roast",
+        "stock": 0,
+        "type_name": "Medium Roast Coffee"
+    }
+]

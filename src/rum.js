@@ -1,6 +1,7 @@
 
 import { init as initApm } from '@elastic/apm-rum'
-import { browserHistory } from 'react-router'
+import history from './history';
+
 
 function changeRoute() {
     var links = Array.from(document.getElementsByTagName('a')).map((a) => {
@@ -8,7 +9,7 @@ function changeRoute() {
     }).filter((a) => { return a.href.startsWith('/') })
     var i = Math.floor(Math.random() * links.length)
     try {
-        browserHistory.push(links[i].href);
+        history.push(links[i].href);
     } catch (e) {
         window.location.href = '/'
         console.log(e)

@@ -1,4 +1,6 @@
 const express = require('express')
+const { readFileSync } = require('fs')
+const { join } = require('path')
 
 
 function startMockServer(port = 3001) {
@@ -6,7 +8,7 @@ function startMockServer(port = 3001) {
     app.get('*', function (req, res) {
         const { path } = req
         const fileName = path.replace(/\//g, '-')
-        const data = require(`./mock-data/${fileName}.json`)
+        const data = JSON.parse(readFileSync(join(__dirname, `./mock-data/${fileName}.json`), 'utf8'))
         res.json(data)
     })
 

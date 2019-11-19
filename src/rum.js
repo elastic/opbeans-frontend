@@ -52,9 +52,12 @@ if (!rumConfig.serverUrl) {
 if (!rumConfig.serviceVersion) {
     rumConfig.serviceVersion = serviceVersion
 }
-rumConfig.logLevel = 'debug'
 
-var apm = initApm(rumConfig)
+const apm = initApm(Object.assign({}, rumConfig, {
+    logLevel: 'debug',
+    breakdownMetrics: true,
+    centralConfig: true,
+}))
 
 const users = [
     { id: 1, username: 'arthurdent', email: 'arthur.dent@example.com' },

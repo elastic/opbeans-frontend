@@ -1,4 +1,4 @@
-[![Build Status](https://apm-ci.elastic.co/job/apm-agent-nodejs/job/opbeans-frontend-mbp/job/master/badge/icon)](https://apm-ci.elastic.co/job/apm-agent-nodejs/job/opbeans-frontend-mbp/job/master/)
+[![Build Status](https://apm-ci.elastic.co/buildStatus/icon?job=apm-agent-nodejs%2Fopbeans-frontend-mbp%2Fmaster)](https://apm-ci.elastic.co/job/apm-agent-nodejs/job/opbeans-frontend-mbp/job/master/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

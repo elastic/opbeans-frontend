@@ -1,0 +1,23 @@
+version: "2.1"
+services:
+  opbeans-frontend:
+    build: .
+    image: opbeans/opbeans-frontend:latest
+    ports:
+      - "127.0.0.1:${OPBEANS_SERVER_PORT:-3000}:3000"
+    container_name: opbeans-frontend
+    logging:
+      driver: 'json-file'
+      options:
+          max-size: '2m'
+          max-file: '5'
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--server-response", "-O", "/dev/null", "http://opbeans-frontend:3000/"]
+      interval: 10s
+      retries: 10
+
+  wait:
+    image: busybox
+    depends_on:
+      opbeans-frontend:
+        condition: service_healthy

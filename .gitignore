@@ -24,3 +24,4 @@ package-lock.json
 # For the BATS testing
 bats/
 target/
+package.jsonbck

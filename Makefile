@@ -1,3 +1,4 @@
+PORT ?= 3000
 IMAGE ?= opbeans/opbeans-frontend
 VERSION ?= latest
 LTS_ALPINE ?= 12-alpine

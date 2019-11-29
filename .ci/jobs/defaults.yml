@@ -10,7 +10,6 @@
 - job:
     view: APM-CI
     logrotate:
-      daysToKeep: 30
       numToKeep: 100
     node: linux
     concurrent: true

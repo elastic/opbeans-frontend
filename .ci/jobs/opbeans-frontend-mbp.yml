@@ -1,6 +1,6 @@
 ---
 - job:
-    name: apm-agent-nodejs/opbeans-frontend-mbp
+    name: apm-agent-rum/opbeans-frontend-mbp
     display-name: Opbeans Frontend
     description: Opbeans Frontend
     project-type: multibranch
@@ -10,7 +10,7 @@
     script-path: .ci/Jenkinsfile
     scm:
     - github:
-        branch-discovery: all
+        branch-discovery: no-pr
         discover-pr-forks-strategy: merge-current
         discover-pr-forks-trust: permission
         discover-pr-origin: merge-current

@@ -4,7 +4,7 @@ set -euxo pipefail
 AGENT_VERSION="${1?Missing the APM rum agent version}"
 
 # Bump version
-sed -ibck "s#--branch='master'#--branch='${AGENT_VERSION}'#g" package.json
+sed -ibck "s#--branch='.*' #--branch='${AGENT_VERSION}' #g" package.json
 
 # Commit changes
 git add package.json

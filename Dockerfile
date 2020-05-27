@@ -6,6 +6,7 @@ RUN apk update && \
 
 ENV NODE_ENV=production
 ENV ELASTIC_APM_JS_BASE_SERVICE_NAME=opbeans-react
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 
 WORKDIR /app
 COPY . /app

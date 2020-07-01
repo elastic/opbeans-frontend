@@ -15,4 +15,13 @@ COPY . /app
 RUN npm install --unsafe-perm \
     && npm run-script build
 
+LABEL \
+    org.label-schema.schema-version="1.0" \
+    org.label-schema.vendor="Elastic" \
+    org.label-schema.name="opbeans-frontend" \
+    org.label-schema.version="5.2.1" \
+    org.label-schema.url="https://hub.docker.com/r/opbeans/opbeans-frontend" \
+    org.label-schema.vcs-url="https://github.com/elastic/opbeans-frontend" \
+    org.label-schema.license="MIT"
+
 CMD ["npm", "run-script", "start"]

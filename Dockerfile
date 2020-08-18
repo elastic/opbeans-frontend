@@ -19,7 +19,7 @@ LABEL \
     org.label-schema.schema-version="1.0" \
     org.label-schema.vendor="Elastic" \
     org.label-schema.name="opbeans-frontend" \
-    org.label-schema.version="@elastic/apm-rum@5.4.0" \
+    org.label-schema.version="@elastic/apm-rum@5.5.0" \
     org.label-schema.url="https://hub.docker.com/r/opbeans/opbeans-frontend" \
     org.label-schema.vcs-url="https://github.com/elastic/opbeans-frontend" \
     org.label-schema.license="MIT"

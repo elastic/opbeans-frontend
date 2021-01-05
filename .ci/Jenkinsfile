@@ -5,5 +5,6 @@ opbeansPipeline(downstreamJobs: ['apm-agent-dotnet/opbeans-dotnet-mbp/master',
                                  'apm-agent-go/opbeans-go-mbp/master',
                                  'apm-agent-java/opbeans-java-mbp/master',
                                  'apm-agent-nodejs/opbeans-node-mbp/master',
+                                 'apm-agent-python/opbeans-php-mbp/master'
                                  'apm-agent-python/opbeans-python-mbp/master',
                                  'apm-agent-ruby/opbeans-ruby-mbp/master'])

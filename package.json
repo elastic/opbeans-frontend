@@ -33,7 +33,7 @@
     "fs-extra": "0.30.0",
     "gzip-size": "3.0.0",
     "history": "^4.10.1",
-    "html-webpack-plugin": "2.24.0",
+    "html-webpack-plugin": "^4.5.2",
     "http-proxy-middleware": "^1.1.0",
     "jest": "^26.6.3",
     "json-loader": "0.5.4",

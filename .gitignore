@@ -19,7 +19,6 @@ elastic-apm-rum
 
 #lockfiles
 yarn.lock
-package-lock.json
 
 # For the BATS testing
 bats/

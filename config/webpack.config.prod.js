@@ -123,10 +123,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader'
-        ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
         // Note: this won't work without `new MiniCssExtractPlugin()` in `plugins`.
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
@@ -187,7 +184,7 @@ module.exports = {
     new TerserJSPlugin({
       sourceMap: true
     }),
-    // Note: this won't work without MiniCssExtractPlugin.extract(..) in `loaders`.
+    // Note: this won't work without MiniCssExtractPlugin.loader in `loaders`.
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].[contenthash:8].css'
     }),

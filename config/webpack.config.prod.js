@@ -125,8 +125,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader'
+          'css-loader'
         ]
         // Note: this won't work without `new MiniCssExtractPlugin()` in `plugins`.
       },

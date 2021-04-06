@@ -7,7 +7,7 @@ var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var url = require('url');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
-const TaserJSPlugin = require('terser-webpack-plugin')
+const TerserJSPlugin = require('terser-webpack-plugin')
 
 
 function ensureSlash(path, needsSlash) {
@@ -181,7 +181,7 @@ module.exports = {
     // This helps ensure the builds are consistent if source hasn't changed:
     new webpack.optimize.OccurrenceOrderPlugin(),
     // Minify the code.
-    new TaserJSPlugin({
+    new TerserJSPlugin({
       sourceMap: true
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.

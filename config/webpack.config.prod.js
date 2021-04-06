@@ -126,8 +126,7 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'postcss-loader',
-          'sass-loader',
+          'postcss-loader'
         ]
         // Note: this won't work without `new MiniCssExtractPlugin()` in `plugins`.
       },
@@ -191,7 +190,7 @@ module.exports = {
     }),
     // Note: this won't work without MiniCssExtractPlugin.extract(..) in `loaders`.
     new MiniCssExtractPlugin({
-      fileName: 'static/css/[name].[contenthash:8].css'
+      filename: 'static/css/[name].[contenthash:8].css'
     }),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without

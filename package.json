@@ -22,7 +22,7 @@
     "elastic-apm-rum": "file:elastic-apm-rum",
     "eslint": "^5.8.0",
     "eslint-config-react-app": "^0.5.0",
-    "eslint-loader": "^2.1.1",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-flowtype": "2.21.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "2.2.3",

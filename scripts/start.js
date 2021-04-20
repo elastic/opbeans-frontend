@@ -187,7 +187,7 @@ function addMiddleware(devServer) {
 
     // Pass the scope regex both to Express and to the middleware for proxying
     // of both HTTP and WebSockets to work without false positives.
-    var hpm = httpProxyMiddleware(pathname => mayProxy.test(pathname), {
+    var hpm = createProxyMiddleware(pathname => mayProxy.test(pathname), {
       target: proxy,
       logLevel: 'silent',
       onProxyReq: function(proxyReq, req, res) {

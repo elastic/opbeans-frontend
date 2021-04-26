@@ -20,7 +20,7 @@
     "detect-port": "1.0.1",
     "dotenv": "2.0.0",
     "elastic-apm-rum": "file:elastic-apm-rum",
-    "eslint": "^5.8.0",
+    "eslint": "^7.25.0",
     "eslint-config-react-app": "^0.5.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-flowtype": "2.21.0",

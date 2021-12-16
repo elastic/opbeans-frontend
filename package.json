@@ -21,7 +21,7 @@
     "dotenv": "2.0.0",
     "elastic-apm-rum": "file:elastic-apm-rum",
     "eslint": "^7.29.0",
-    "eslint-config-react-app": "^0.5.0",
+    "eslint-config-react-app": "^7.0.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-flowtype": "5.8.2",
     "eslint-plugin-import": "^2.14.0",

@@ -1,9 +1,9 @@
 #!/usr/bin/env groovy
 @Library('apm@current') _
 
-opbeansPipeline(downstreamJobs: ['apm-agent-dotnet/opbeans-dotnet-mbp/master',
-                                 'apm-agent-go/opbeans-go-mbp/master',
-                                 'apm-agent-java/opbeans-java-mbp/master',
-                                 'apm-agent-nodejs/opbeans-node-mbp/master',
-                                 'apm-agent-python/opbeans-python-mbp/master',
-                                 'apm-agent-ruby/opbeans-ruby-mbp/master'])
+opbeansPipeline(downstreamJobs: ['apm-agent-dotnet/opbeans-dotnet-mbp/main',
+                                 'apm-agent-go/opbeans-go-mbp/main',
+                                 'apm-agent-java/opbeans-java-mbp/main',
+                                 'apm-agent-nodejs/opbeans-node-mbp/main',
+                                 'apm-agent-python/opbeans-python-mbp/main',
+                                 'apm-agent-ruby/opbeans-ruby-mbp/main'])

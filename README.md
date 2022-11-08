@@ -1,4 +1,4 @@
-[![Build Status](https://apm-ci.elastic.co/buildStatus/icon?job=apm-agent-rum%2Fopbeans-frontend-mbp%2Fmaster)](https://apm-ci.elastic.co/job/apm-agent-rum/job/opbeans-frontend-mbp/job/main/)
+[![Build Status](https://github.com/elastic/opbeans-frontend/actions/workflows/test.yml/badge.svg)](https://github.com/elastic/opbeans-frontend/actions/workflows/test.yml)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

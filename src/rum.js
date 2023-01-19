@@ -37,7 +37,7 @@ window.deactivateLoadGeneration = function () {
 }
 
 function stringToList(value) {
-    if (value != ""){
+    if (value !== "" && value !== undefined){
         return JSON.parse(value)
     }
     return []

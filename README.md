@@ -134,6 +134,32 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
+It is posible to configure the Elastic APM Real User Monitoring (RUM) JavaScript Agent by using the following environment variables,
+for more details see [Elastic APM Real User Monitoring Configuration](https://www.elastic.co/guide/en/apm/agent/rum-js/master/configuration.html):
+
+* ELASTIC_APM_SERVICE_NAME Your Elastic APM service name.
+* ELASTIC_APM_SERVICE_VERSION The version of the app.
+* ELASTIC_APM_SERVER_URL The URL used to make requests to the APM Server.
+* ELASTIC_APM_ACTIVE A boolean specifying if the agent should be active or not.
+* ELASTIC_APM_INSTRUMENT A boolean specifying if the agent should automatically instrument the application to collect performance metrics for the application.
+* ELASTIC_APM_DISABLE_INSTRUMENT A list of instrumentations which can be disabled. When disabled, no transactions/spans will be created for that type.
+* ELASTIC_APM_ENVIRONMENT Environment where the service being monitored is deployed, e.g. "production", "development", "test", etc.
+* ELASTIC_APM_LOG_LEVEL Set the verbosity level for the agent.
+* ELASTIC_APM_BREAKDOWN_METRICS Enable/disable the tracking and collection of breakdown metrics for the transaction.
+* ELASTIC_APM_FLUSH_INTERVAL The agent maintains two in-memory queues to record transactions and errors when they are added. This option sets the flush interval in milliseconds for these queues.
+* ELASTIC_APM_DISTRIBUTED_TRACING Distributed tracing is enabled by default, however you can use this configuration to disable it.
+* ELASTIC_APM_DISTRIBUTED_TRACING_ORIGINS This option is an JSON array of strings and determines which origins should be monitored as part of distributed tracing.
+* ELASTIC_APM_ERROR_THROTTLE_LIMIT To throttle the number of errors send to the APM Server.
+* ELASTIC_APM_ERROR_THROTTLE_INTERVAL set the interval to send errors to the APM Server
+* ELASTIC_APM_TRANSACTION_THROTTLE_LIMIT To throttle the number of transactiona send to the APM Server.
+* ELASTIC_APM_TRANSACTION_THROTTLE_INTERVAL set the interval to send transactions to the APM Server
+* ELASTIC_APM_TRANSACTION_SAMPLE_RATE A number between 0.0 and 1.0 that specifies the sample rate of transactions, by default all transactions are sampled.
+* ELASTIC_APM_CENTRAL_CONFIG This option activates APM Agent Configuration via Kibana.
+* ELASTIC_APM_TRANSACTION_IGNORE_URLS JSON array containing a list of transactions names that should be ignored when sending the payload to the APM server.
+* ELASTIC_APM_MONITOR_LONGTASKS Instructs the agent to start monitoring for browser tasks that block the UI thread and might delay other user inputs by affecting the overall page responsiveness.
+
+The products details page implements a random error to report errors to APM, it is possible to disable this error by setting the environment variable `ELASTIC_APM_RANDOM_ERROR` to false.
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
@@ -601,6 +627,8 @@ To tell the development server to proxy any unknown requests to your API server 
 ```js
   "proxy": "http://localhost:4000",
 ```
+
+The environment variable `ELASTIC_OPBEANS_API_SERVER` allow you to change also the URL of the Opbeans backend service
 
 This way, when you `fetch('/api/todos')` in development, the development server will recognize that it’s not a static asset, and will proxy your request to `http://localhost:4000/api/todos` as a fallback. The development server will only attempt to send requests without a `text/html` accept header to the proxy.
 

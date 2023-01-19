@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import CustomersList from '../CustomersList';
 
 const ProductDetail = ({product, productCustomers, getCustomers}) => {
-  if(Math.random()>0.7) {
+  let randomErrorActive = process.env.ELASTIC_APM_RANDOM_ERROR === 'true' || true
+  if(randomErrorActive && Math.random()>0.7) {
       throw new Error("ProductDetail randomly failed to render!");
   }
       

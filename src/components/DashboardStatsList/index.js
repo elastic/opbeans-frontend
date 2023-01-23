@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types"
-import { NavLink as Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const DashboardStatsList = ({stats}) => {
     
@@ -45,25 +45,25 @@ const DashboardStatsList = ({stats}) => {
               <div className="ui horizontal segments">
                   <div className="ui segment">
                       <h3 className="ui sub header">
-                          <Link className="item" activeClassName="active" to="/products">
+                          <NavLink className="item" style={({ isActive }) => isActive ? {textDecoration: "underline"} : undefined} to="/products">
                               Products
-                          </Link>
+                          </NavLink>
                       </h3>
                       <span>{stats.data.products}</span>
                   </div>
                   <div className="ui segment">
                       <h3 className="ui sub header">
-                          <Link className="item" activeClassName="active" to="/customers">
+                          <NavLink className="item" style={({ isActive }) => isActive ? {textDecoration: "underline"} : undefined} to="/customers">
                               Customers
-                          </Link>
+                          </NavLink>
                       </h3>
                       <span>{stats.data.customers}</span>
                   </div>
                   <div className="ui segment">
                       <h3 className="ui sub header">
-                          <Link className="item" activeClassName="active" to="/orders">
+                          <NavLink className="item" style={({ isActive }) => isActive ? {textDecoration: "underline"} : undefined} to="/orders">
                               Orders
-                          </Link>
+                          </NavLink>
                       </h3>
                       <span>{stats.data.orders}</span>
                   </div>

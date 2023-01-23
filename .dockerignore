@@ -5,6 +5,7 @@
 .gitmodules
 .idea
 .vscode
+config
 Dockerfile
 Makefile
 node_modules

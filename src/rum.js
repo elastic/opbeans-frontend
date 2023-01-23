@@ -1,40 +1,7 @@
 
 import { init as initApm } from '@elastic/apm-rum'
-import history from './history';
 
-
-function changeRoute() {
-    var links = Array.from(document.getElementsByTagName('a')).map((a) => {
-        return { href: a.getAttribute('href'), element: a }
-    }).filter((a) => { return a.href.startsWith('/') })
-    var i = Math.floor(Math.random() * links.length)
-    try {
-        history.push(links[i].href);
-    } catch (e) {
-        window.location.href = '/'
-        console.log(e)
-    }
-}
-
-window.changeRoute = changeRoute
-
-
-var timeoutId
-function setRouteChangeTimeout() {
-    timeoutId = setTimeout(() => {
-        changeRoute()
-        setRouteChangeTimeout()
-    }, 2000 + Math.floor(Math.random() * 10000));
-}
-window.activateLoadGeneration = function () {
-    setRouteChangeTimeout()
-}
-
-window.deactivateLoadGeneration = function () {
-    if (timeoutId) {
-        clearTimeout(timeoutId)
-    }
-}
+console.log('Configuring RUM agent')
 
 function stringToList(value) {
     if (value !== "" && value !== undefined){
@@ -43,9 +10,9 @@ function stringToList(value) {
     return []
 }
 
-let serviceName = process.env.ELASTIC_APM_JS_BASE_SERVICE_NAME || process.env.ELASTIC_APM_SERVICE_NAME || window.elasticApmJsBaseServiceName
-let serviceVersion = process.env.ELASTIC_APM_JS_BASE_SERVICE_VERSION || process.env.ELASTIC_APM_SERVICE_VERSION || window.elasticApmJsBaseServiceVersion
-let serverUrl = process.env.ELASTIC_APM_JS_BASE_SERVER_URL || process.env.ELASTIC_APM_SERVER_URL || window.elasticApmJsBaseServerUrl
+let serviceName = process.env.REACT_APP_ELASTIC_APM_JS_BASE_SERVICE_NAME || process.env.REACT_APP_ELASTIC_APM_SERVICE_NAME || window.elasticApmJsBaseServiceName
+let serviceVersion = process.env.REACT_APP_ELASTIC_APM_JS_BASE_SERVICE_VERSION || process.env.REACT_APP_ELASTIC_APM_SERVICE_VERSION || window.elasticApmJsBaseServiceVersion
+let serverUrl = process.env.REACT_APP_ELASTIC_APM_JS_BASE_SERVER_URL || process.env.REACT_APP_ELASTIC_APM_SERVER_URL || window.elasticApmJsBaseServerUrl
 
 let rumConfig = window.rumConfig || {}
 
@@ -59,22 +26,21 @@ if (!rumConfig.serviceVersion) {
     rumConfig.serviceVersion = serviceVersion
 }
 
-rumConfig.active = process.env.ELASTIC_APM_ACTIVE === 'true' || true
-rumConfig.instrument = process.env.ELASTIC_APM_INSTRUMENT === 'true' || true
-rumConfig.disableInstrumentations = stringToList(process.env.ELASTIC_APM_DISABLE_INSTRUMENT) || []
-rumConfig.environment = process.env.ELASTIC_APM_ENVIRONMENT || 'production'
-rumConfig.logLevel = process.env.ELASTIC_APM_LOG_LEVEL || 'debug'
-rumConfig.breakdownMetrics = process.env.ELASTIC_APM_BREAKDOWN_METRICS === 'true' || false
-rumConfig.flushInterval = Number(process.env.ELASTIC_APM_FLUSH_INTERVAL) || 500
-rumConfig.distributedTracing = process.env.ELASTIC_APM_DISTRIBUTED_TRACING === 'true' || true
+rumConfig.active = process.env.REACT_APP_ELASTIC_APM_ACTIVE === 'true' || true
+rumConfig.breakdownMetrics = process.env.REACT_APP_ELASTIC_APM_BREAKDOWN_METRICS === 'true' || false
+rumConfig.centralConfig = process.env.REACT_APP_ELASTIC_APM_CENTRAL_CONFIG === 'true' || false
+rumConfig.disableInstrumentations = stringToList(process.env.REACT_APP_ELASTIC_APM_DISABLE_INSTRUMENT) || []
+rumConfig.distributedTracing = process.env.REACT_APP_ELASTIC_APM_DISTRIBUTED_TRACING === 'true' || true
 rumConfig.distributedTracingOrigins = stringToList(process.env.ELASTIC_APM_DISTRIBUTED_TRACING_ORIGINS)
-
-rumConfig.errorThrottleLimit = Number(process.env.ELASTIC_APM_ERROR_THROTTLE_LIMIT) || 20
-rumConfig.errorThrottleInterval = Number(process.env.ELASTIC_APM_ERROR_THROTTLE_INTERVAL) || 30000
-rumConfig.transactionSampleRate = Number(process.env.ELASTIC_APM_TRANSACTION_SAMPLE_RATE) || 1.0
-rumConfig.centralConfig = process.env.ELASTIC_APM_CENTRAL_CONFIG === 'true' || false
+rumConfig.environment = process.env.REACT_APP_ELASTIC_APM_ENVIRONMENT || 'production'
+rumConfig.errorThrottleInterval = Number(process.env.REACT_APP_ELASTIC_APM_ERROR_THROTTLE_INTERVAL) || 30000
+rumConfig.errorThrottleLimit = Number(process.env.REACT_APP_ELASTIC_APM_ERROR_THROTTLE_LIMIT) || 20
+rumConfig.flushInterval = Number(process.env.REACT_APP_ELASTIC_APM_FLUSH_INTERVAL) || 500
 rumConfig.ignoreTransactions = stringToList(process.env.ELASTIC_APM_TRANSACTION_IGNORE_URLS)
-rumConfig.monitorLongtasks = process.env.ELASTIC_APM_MONITOR_LONGTASKS === 'true' || false
+rumConfig.instrument = process.env.REACT_APP_ELASTIC_APM_INSTRUMENT === 'true' || true
+rumConfig.logLevel = process.env.REACT_APP_ELASTIC_APM_LOG_LEVEL || 'debug'
+rumConfig.monitorLongtasks = process.env.REACT_APP_ELASTIC_APM_MONITOR_LONGTASKS === 'true' || false
+rumConfig.transactionSampleRate = Number(process.env.REACT_APP_ELASTIC_APM_TRANSACTION_SAMPLE_RATE) || 1.0
 
 var apm = initApm(rumConfig)
 
@@ -101,3 +67,5 @@ try {
 } catch (e) {
     apm.captureError(e)
 }
+
+console.log('Configured RUM agent')

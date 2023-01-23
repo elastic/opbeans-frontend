@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink as Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 
 class AppHeader extends Component {
@@ -10,24 +10,24 @@ class AppHeader extends Component {
         <div className={classnames('AppHeader', className)} {...props}>
             <div className="ui large blue inverted menu">
                 <div className="ui container">
-                    <Link className="item" activeClassName="active" to="/dashboard">
+                    <NavLink className="item" style={({ isActive }) => isActive ? {textDecoration: "underline"} : undefined} to="/dashboard">
                         <i className="dashboard icon"></i>
                         Dashboard
-                    </Link>
+                    </NavLink>
 
                     <div className="menu right">
-                        <Link className="item" activeClassName="active" to="/products">
+                        <NavLink className="item" style={({ isActive }) => isActive ? {textDecoration: "underline"} : undefined} to="/products">
                             <i className="coffee icon"></i>
                             Products
-                        </Link>
-                        <Link className="item" activeClassName="active" to="/orders">
+                        </NavLink>
+                        <NavLink className="item" style={({ isActive }) => isActive ? {textDecoration: "underline"} : undefined} to="/orders">
                             <i className="cart icon"></i>
                             Orders
-                        </Link>
-                        <Link className="item" activeClassName="active" to="/customers">
+                        </NavLink>
+                        <NavLink className="item" style={({ isActive }) => isActive ? {textDecoration: "underline"} : undefined} to="/customers">
                             <i className="users icon"></i>
                             Customers
-                        </Link>
+                        </NavLink>
                     </div>
 
                 </div>

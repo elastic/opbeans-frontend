@@ -37,27 +37,6 @@ react-router-dom v6 is not supported https://github.com/elastic/apm-agent-rum-js
 <ApmRoute path="/products" component={Products} />
 so we use withTransaction instead
 */
-
-function OrdersWithTransaction(props) {
-  return withTransaction('Orders', 'Component')(Orders)
-}
-
-function CustomersWithTransaction(props) {
-  return withTransaction('Customers', 'Component')(Customers)
-}
-
-function CustomerWithTransaction(props) {
-  return withTransaction('Customer', 'Component')(Customer)
-}
-
-function OrderWithTransaction(props) {
-  return withTransaction('Order', 'Component')(Order)
-}
-
-function ProductWithTransaction(props) {
-  return withTransaction('Product', 'Component')(Product)
-}
-
 class App extends Component {
 
   render() {

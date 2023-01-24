@@ -24,13 +24,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "test": "node scripts/test.js --env=jsdom",
     "mock-api-server": "node scripts/mock-server.js",
     "install-dev": "npm install --also=dev",
     "build": "react-scripts build",
+    "prestart": "echo 'Please check the README.md for further instructions about how to run the application.'",
     "start": "react-scripts start",
-    "test-react": "react-scripts test",
-    "build-analyze": "npm run build && npm run analyze"
+    "test": "react-scripts test"
   },
   "proxy": "http://localhost:3001/",
   "eslintConfig": {
@@ -38,10 +37,6 @@
       "react-app",
       "react-app/jest"
     ]
-  },
-  "devDependencies": {
-    "npm-check-updates": "^16.6.2",
-    "react-dev-utils": "^12.0.1"
   },
   "browserslist": {
     "production": [

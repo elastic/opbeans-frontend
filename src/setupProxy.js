@@ -6,7 +6,7 @@ module.exports = function (app) {
     app.use(
         '/api',
         createProxyMiddleware({
-            target: process.env.ELASTIC_OPBEANS_API_SERVER || require(paths.appPackageJson).proxy,
+            target: process.env.REACT_APP_ELASTIC_OPBEANS_API_SERVER || require(paths.appPackageJson).proxy,
             changeOrigin: true,
         })
       );

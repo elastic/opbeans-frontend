@@ -8,7 +8,7 @@ function onError(err, req, res, target) {
         'Content-Type': 'application/json',
     });
     res.end('{}');
-    console.error('Something went wrong. Check you are runninf the API server in the correct port. (npm rum mock-api-server or any Opbeans API server))');
+    console.error('Something went wrong. Check you are running the API server in the correct port. (npm rum mock-api-server or any Opbeans API server))');
 }
 
 module.exports = function (app) {

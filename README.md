@@ -35,6 +35,10 @@ If you are not in development mode, the `.env.development` file is not used, so 
 
 Any other environment variable started with `REACT_APP` is also injected in the app, see [Adding Custom Environment Variables](https://github.com/facebook/create-react-app/blob/main/docusaurus/docs/adding-custom-environment-variables.md)
 
+### `npm run mock-api-server`
+
+The frontend projects needs an Opbeans API server up and running to route the API call, you can simulate it by running this script.
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\

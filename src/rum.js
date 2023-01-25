@@ -26,11 +26,11 @@ if (!rumConfig.serviceVersion) {
     rumConfig.serviceVersion = serviceVersion
 }
 
-rumConfig.active = process.env.REACT_APP_ELASTIC_APM_ACTIVE === 'true' || true
+rumConfig.active = process.env.REACT_APP_ELASTIC_APM_ACTIVE === 'true'
 rumConfig.breakdownMetrics = process.env.REACT_APP_ELASTIC_APM_BREAKDOWN_METRICS === 'true' || false
 rumConfig.centralConfig = process.env.REACT_APP_ELASTIC_APM_CENTRAL_CONFIG === 'true' || false
 rumConfig.disableInstrumentations = stringToList(process.env.REACT_APP_ELASTIC_APM_DISABLE_INSTRUMENT) || []
-rumConfig.distributedTracing = process.env.REACT_APP_ELASTIC_APM_DISTRIBUTED_TRACING === 'true' || true
+rumConfig.distributedTracing = process.env.REACT_APP_ELASTIC_APM_DISTRIBUTED_TRACING === 'true'
 rumConfig.distributedTracingOrigins = stringToList(process.env.ELASTIC_APM_DISTRIBUTED_TRACING_ORIGINS)
 rumConfig.environment = process.env.REACT_APP_ELASTIC_APM_ENVIRONMENT || 'production'
 rumConfig.errorThrottleInterval = Number(process.env.REACT_APP_ELASTIC_APM_ERROR_THROTTLE_INTERVAL) || 30000

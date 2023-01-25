@@ -27,21 +27,17 @@ for more details about the setting see [Elastic APM Real User Monitoring Configu
 * ELASTIC_APM_SERVER_URL The URL used to make requests to the APM Server.
 * ELASTIC_APM_ACTIVE A boolean specifying if the agent should be active or not.
 * ELASTIC_APM_INSTRUMENT A boolean specifying if the agent should automatically instrument the application to collect performance metrics for the application.
-* ELASTIC_APM_DISABLE_INSTRUMENT A list of instrumentations which can be disabled. When disabled, no transactions/spans will be created for that type.
+* ELASTIC_APM_DISABLE_INSTRUMENTATIONS A list of instrumentations which can be disabled. When disabled, no transactions/spans will be created for that type.
 * ELASTIC_APM_ENVIRONMENT Environment where the service being monitored is deployed, e.g. "production", "development", "test", etc.
 * ELASTIC_APM_LOG_LEVEL Set the verbosity level for the agent.
 * ELASTIC_APM_BREAKDOWN_METRICS Enable/disable the tracking and collection of breakdown metrics for the transaction.
 * ELASTIC_APM_FLUSH_INTERVAL The agent maintains two in-memory queues to record transactions and errors when they are added. This option sets the flush interval in milliseconds for these queues.
 * ELASTIC_APM_DISTRIBUTED_TRACING Distributed tracing is enabled by default, however you can use this configuration to disable it.
 * ELASTIC_APM_DISTRIBUTED_TRACING_ORIGINS This option is an JSON array of strings and determines which origins should be monitored as part of distributed tracing.
-* ELASTIC_APM_ERROR_THROTTLE_LIMIT To throttle the number of errors send to the APM Server.
-* ELASTIC_APM_ERROR_THROTTLE_INTERVAL set the interval to send errors to the APM Server
-* ELASTIC_APM_TRANSACTION_THROTTLE_LIMIT To throttle the number of transactiona send to the APM Server.
-* ELASTIC_APM_TRANSACTION_THROTTLE_INTERVAL set the interval to send transactions to the APM Server
+* ELASTIC_APM_EVENTS_LIMIT By default, the agent can only send up to 80 events every 60000 milliseconds (one minute).
 * ELASTIC_APM_TRANSACTION_SAMPLE_RATE A number between 0.0 and 1.0 that specifies the sample rate of transactions, by default all transactions are sampled.
 * ELASTIC_APM_CENTRAL_CONFIG This option activates APM Agent Configuration via Kibana.
 * ELASTIC_APM_TRANSACTION_IGNORE_URLS JSON array containing a list of transactions names that should be ignored when sending the payload to the APM server.
-* ELASTIC_APM_MONITOR_LONGTASKS Instructs the agent to start monitoring for browser tasks that block the UI thread and might delay other user inputs by affecting the overall page responsiveness.
 
 The products details page implements a random error to report errors to APM, it is possible to disable this error by setting the environment variable `ELASTIC_APM_RANDOM_ERROR` to false.
 

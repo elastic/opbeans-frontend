@@ -27,19 +27,18 @@ if (!rumConfig.serviceVersion) {
 }
 
 rumConfig.active = process.env.REACT_APP_ELASTIC_APM_ACTIVE === 'true'
-rumConfig.breakdownMetrics = process.env.REACT_APP_ELASTIC_APM_BREAKDOWN_METRICS === 'true' || false
-rumConfig.centralConfig = process.env.REACT_APP_ELASTIC_APM_CENTRAL_CONFIG === 'true' || false
-rumConfig.disableInstrumentations = stringToList(process.env.REACT_APP_ELASTIC_APM_DISABLE_INSTRUMENT) || []
+rumConfig.breakdownMetrics = process.env.REACT_APP_ELASTIC_APM_BREAKDOWN_METRICS === 'true'
+rumConfig.centralConfig = process.env.REACT_APP_ELASTIC_APM_CENTRAL_CONFIG === 'true'
+rumConfig.disableInstrumentations = stringToList(process.env.REACT_APP_ELASTIC_APM_DISABLE_INSTRUMENTATIONS) || []
 rumConfig.distributedTracing = process.env.REACT_APP_ELASTIC_APM_DISTRIBUTED_TRACING === 'true'
 rumConfig.distributedTracingOrigins = stringToList(process.env.ELASTIC_APM_DISTRIBUTED_TRACING_ORIGINS)
 rumConfig.environment = process.env.REACT_APP_ELASTIC_APM_ENVIRONMENT || 'production'
-rumConfig.errorThrottleInterval = Number(process.env.REACT_APP_ELASTIC_APM_ERROR_THROTTLE_INTERVAL) || 30000
-rumConfig.errorThrottleLimit = Number(process.env.REACT_APP_ELASTIC_APM_ERROR_THROTTLE_LIMIT) || 20
+rumConfig.eventsLimit = Number(process.env.REACT_APP_ELASTIC_APM_EVENTS_LIMIT) || 80
 rumConfig.flushInterval = Number(process.env.REACT_APP_ELASTIC_APM_FLUSH_INTERVAL) || 500
 rumConfig.ignoreTransactions = stringToList(process.env.ELASTIC_APM_TRANSACTION_IGNORE_URLS)
 rumConfig.instrument = process.env.REACT_APP_ELASTIC_APM_INSTRUMENT === 'true'
 rumConfig.logLevel = process.env.REACT_APP_ELASTIC_APM_LOG_LEVEL || 'debug'
-rumConfig.monitorLongtasks = process.env.REACT_APP_ELASTIC_APM_MONITOR_LONGTASKS === 'true' || false
+rumConfig.monitorLongtasks = process.env.REACT_APP_ELASTIC_APM_MONITOR_LONGTASKS === 'true'
 rumConfig.transactionSampleRate = Number(process.env.REACT_APP_ELASTIC_APM_TRANSACTION_SAMPLE_RATE) || 1.0
 
 var apm = initApm(rumConfig)

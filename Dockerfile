@@ -21,6 +21,7 @@ RUN npm install \
 
 ENV DISABLE_ESLINT_PLUGIN=true
 ENV DANGEROUSLY_DISABLE_HOST_CHECK=true
+ENV WDS_SOCKET_PORT=0
 
 LABEL \
     org.label-schema.schema-version="1.0" \

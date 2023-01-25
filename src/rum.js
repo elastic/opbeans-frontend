@@ -37,7 +37,7 @@ rumConfig.errorThrottleInterval = Number(process.env.REACT_APP_ELASTIC_APM_ERROR
 rumConfig.errorThrottleLimit = Number(process.env.REACT_APP_ELASTIC_APM_ERROR_THROTTLE_LIMIT) || 20
 rumConfig.flushInterval = Number(process.env.REACT_APP_ELASTIC_APM_FLUSH_INTERVAL) || 500
 rumConfig.ignoreTransactions = stringToList(process.env.ELASTIC_APM_TRANSACTION_IGNORE_URLS)
-rumConfig.instrument = process.env.REACT_APP_ELASTIC_APM_INSTRUMENT === 'true' || true
+rumConfig.instrument = process.env.REACT_APP_ELASTIC_APM_INSTRUMENT === 'true'
 rumConfig.logLevel = process.env.REACT_APP_ELASTIC_APM_LOG_LEVEL || 'debug'
 rumConfig.monitorLongtasks = process.env.REACT_APP_ELASTIC_APM_MONITOR_LONGTASKS === 'true' || false
 rumConfig.transactionSampleRate = Number(process.env.REACT_APP_ELASTIC_APM_TRANSACTION_SAMPLE_RATE) || 1.0

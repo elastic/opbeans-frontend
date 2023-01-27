@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "full_name": "Barbara Rogers",
+    "company_name": "Skyba",
+    "email": "brogers0@t-online.de",
+    "address": "81 Sutteridge Lane",
+    "postal_code": "1234",
+    "city": "Cikiruh Wetan",
+    "country": "Indonesia"
+  },
+  {
+    "id": 2,
+    "full_name": "Paula Hill",
+    "company_name": "Demivee",
+    "email": "phill1@dailymail.co.uk",
+    "address": "66 Lillian Parkway",
+    "postal_code": "1234",
+    "city": "Guodu",
+    "country": "China"
+  },
+  {
+    "id": 3,
+    "full_name": "Andrea Wells",
+    "company_name": "Quinu",
+    "email": "awells2@noaa.gov",
+    "address": "790 East Plaza",
+    "postal_code": "1234",
+    "city": "Punolu",
+    "country": "Philippines"
+  },
+  {
+    "id": 4,
+    "full_name": "Jonathan Hanson",
+    "company_name": "Katz",
+    "email": "jhanson3@wiley.com",
+    "address": "6 Corben Crossing",
+    "postal_code": "1234",
+    "city": "Tongshanxiang",
+    "country": "China"
+  },
+  {
+    "id": 5,
+    "full_name": "Stephanie Baker",
+    "company_name": "Twitterwire",
+    "email": "sbaker4@google.ca",
+    "address": "1938 Pine View Street",
+    "postal_code": "1234",
+    "city": "Bijia",
+    "country": "China"
+  }
+]

@@ -1,23 +1,23 @@
 [
-    {
-        "id": 1,
-        "sku": "OP-DRC-C1",
-        "name": "Brazil Verde, Italian Roast",
-        "stock": 80,
-        "sold": "4720"
-    },
-    {
-        "id": 3,
-        "sku": "OP-LRC-C3",
-        "name": "Colombian Supremo, Cinnamon Roast",
-        "stock": 150,
-        "sold": "4783"
-    },
-    {
-        "id": 2,
-        "sku": "OP-MRC-C2",
-        "name": "Jamaica Blue Mountain, Vienna Roast",
-        "stock": 0,
-        "sold": "9372"
-    }
+  {
+    "id": 1,
+    "sku": "OP-DRC-C1",
+    "name": "Brazil Verde, Italian Roast",
+    "stock": 80,
+    "sold": "4720"
+  },
+  {
+    "id": 3,
+    "sku": "OP-LRC-C3",
+    "name": "Colombian Supremo, Cinnamon Roast",
+    "stock": 150,
+    "sold": "4783"
+  },
+  {
+    "id": 2,
+    "sku": "OP-MRC-C2",
+    "name": "Jamaica Blue Mountain, Vienna Roast",
+    "stock": 0,
+    "sold": "9372"
+  }
 ]

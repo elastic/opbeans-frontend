@@ -9,7 +9,7 @@
     <script type="text/javascript" src="/rum-config.js"></script>
   </head>
 
-  <body onload="init()">
+  <body>
     <div id="root"></div>
     <!--
         This HTML file is a template.
@@ -22,15 +22,10 @@
         To create a production bundle, use `npm run build`.
       -->
   </body>
-  <script>
-    function init(){
-      var pageName = window.location.pathname.split('/')[1]
-      window.elasticApm.setInitialPageLoadName(pageName)
-      generateError(pageName)
-    }
+  <script onload="window.elasticApm.setInitialPageLoadName(window.location.pathname.split('/')[1])">
     function generateError(pageName) {
       throw new Error('Test Error in ' + pageName)
     }
-    
+    generateError(window.location.pathname.split('/')[1])
   </script>
 </html>

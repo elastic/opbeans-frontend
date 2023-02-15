@@ -8,11 +8,12 @@ import './style.css';
 
 import CustomerDetail from '../CustomerDetail';
 import * as customerActions from '../../actions/customerActions';
+import { withTransaction } from '@elastic/apm-rum-react'
 
 class Customer extends Component {
 
     componentDidMount() {
-        this.props.actions.loadCustomer(this.props.params.id);
+        this.props.actions.loadCustomer(this.props.customerId);
     }
 
     render() {
@@ -45,4 +46,4 @@ function mapDispatchToProps(dispatch) {
     return {actions: bindActionCreators(customerActions, dispatch)}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Customer);
+export default withTransaction('Customer', 'Component')(connect(mapStateToProps, mapDispatchToProps)(Customer));

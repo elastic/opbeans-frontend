@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import { NavLink as Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class AppFooter extends Component {
 
@@ -18,9 +18,9 @@ class AppFooter extends Component {
                   <div className="ui stackable inverted divided equal height stackable grid">
                       <div className="three wide column">
                           <div className="ui inverted link list">
-                              <Link className="item" activeClassName="active" to="/dashboard">
+                              <NavLink className="item" style={({ isActive }) => isActive ? {textDecoration: "underline"} : undefined} to="/dashboard">
                                   Dashboard
-                              </Link>
+                              </NavLink>
                               <a href="#" onClick={ this.getSettingsWindow } className="item">Settings</a>
                               <a href="#" className="item disabled">Log out</a>
                           </div>

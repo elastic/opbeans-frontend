@@ -1,21 +1,23 @@
 import './rum'
 import React from 'react'
-import ReactDOM from 'react-dom'
-import history from './history';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
 import { Provider } from 'react-redux'
 
-import configureStore from './store/configureStore'
-import Routes from './routes'
-
-const store = configureStore()
-
+import configureDefaultStore from './store/configureStore'
+import App from './components/App';
 import './index.css'
 import './semantic-ui/semantic.min.css'
 
-ReactDOM.render(
-  <Provider store={store}>
-    <Routes history={history} />
-  </Provider>,
-  document.getElementById('root')
-)
+const store = configureDefaultStore()
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+      <App />
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>
+);

@@ -10,6 +10,8 @@ import * as productActions from '../../actions/productActions';
 import * as statsActions from '../../actions/statsActions';
 
 import './style.css';
+import { withTransaction } from '@elastic/apm-rum-react'
+
 
 class Dashboard extends Component {
 
@@ -77,4 +79,5 @@ function mapDispatchToProps(dispatch) {
     return {actions: bindActionCreators(Object.assign({}, productActions, statsActions), dispatch)}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+//export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default withTransaction('AboutComponent', 'component')(connect(mapStateToProps, mapDispatchToProps)(Dashboard))

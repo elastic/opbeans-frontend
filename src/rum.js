@@ -1,45 +1,18 @@
 
 import { init as initApm } from '@elastic/apm-rum'
-import history from './history';
 
+console.log('Configuring RUM agent')
 
-function changeRoute() {
-    var links = Array.from(document.getElementsByTagName('a')).map((a) => {
-        return { href: a.getAttribute('href'), element: a }
-    }).filter((a) => { return a.href.startsWith('/') })
-    var i = Math.floor(Math.random() * links.length)
-    try {
-        history.push(links[i].href);
-    } catch (e) {
-        window.location.href = '/'
-        console.log(e)
+function stringToList(value) {
+    if (value !== "" && value !== undefined){
+        return JSON.parse(value)
     }
+    return []
 }
 
-window.changeRoute = changeRoute
-
-
-var timeoutId
-function setRouteChangeTimeout() {
-    timeoutId = setTimeout(() => {
-        changeRoute()
-        setRouteChangeTimeout()
-    }, 2000 + Math.floor(Math.random() * 10000));
-}
-window.activateLoadGeneration = function () {
-    setRouteChangeTimeout()
-}
-
-window.deactivateLoadGeneration = function () {
-    if (timeoutId) {
-        clearTimeout(timeoutId)
-    }
-}
-
-
-let serviceName = window.elasticApmJsBaseServiceName || process.env.ELASTIC_APM_JS_BASE_SERVICE_NAME
-let serviceVersion = window.elasticApmJsBaseServiceVersion || process.env.ELASTIC_APM_JS_BASE_SERVICE_VERSION
-let serverUrl = window.elasticApmJsBaseServerUrl || process.env.ELASTIC_APM_JS_BASE_SERVER_URL
+let serviceName = process.env.REACT_APP_ELASTIC_APM_JS_BASE_SERVICE_NAME || process.env.REACT_APP_ELASTIC_APM_SERVICE_NAME || window.elasticApmJsBaseServiceName
+let serviceVersion = process.env.REACT_APP_ELASTIC_APM_JS_BASE_SERVICE_VERSION || process.env.REACT_APP_ELASTIC_APM_SERVICE_VERSION || window.elasticApmJsBaseServiceVersion
+let serverUrl = process.env.REACT_APP_ELASTIC_APM_JS_BASE_SERVER_URL || process.env.REACT_APP_ELASTIC_APM_SERVER_URL || window.elasticApmJsBaseServerUrl
 
 let rumConfig = window.rumConfig || {}
 
@@ -52,7 +25,21 @@ if (!rumConfig.serverUrl) {
 if (!rumConfig.serviceVersion) {
     rumConfig.serviceVersion = serviceVersion
 }
-rumConfig.logLevel = 'debug'
+
+rumConfig.active = process.env.REACT_APP_ELASTIC_APM_ACTIVE === 'true'
+rumConfig.breakdownMetrics = process.env.REACT_APP_ELASTIC_APM_BREAKDOWN_METRICS === 'true'
+rumConfig.centralConfig = process.env.REACT_APP_ELASTIC_APM_CENTRAL_CONFIG === 'true'
+rumConfig.disableInstrumentations = stringToList(process.env.REACT_APP_ELASTIC_APM_DISABLE_INSTRUMENTATIONS) || []
+rumConfig.distributedTracing = process.env.REACT_APP_ELASTIC_APM_DISTRIBUTED_TRACING === 'true'
+rumConfig.distributedTracingOrigins = stringToList(process.env.ELASTIC_APM_DISTRIBUTED_TRACING_ORIGINS)
+rumConfig.environment = process.env.REACT_APP_ELASTIC_APM_ENVIRONMENT || 'production'
+rumConfig.eventsLimit = Number(process.env.REACT_APP_ELASTIC_APM_EVENTS_LIMIT) || 80
+rumConfig.flushInterval = Number(process.env.REACT_APP_ELASTIC_APM_FLUSH_INTERVAL) || 500
+rumConfig.ignoreTransactions = stringToList(process.env.ELASTIC_APM_TRANSACTION_IGNORE_URLS)
+rumConfig.instrument = process.env.REACT_APP_ELASTIC_APM_INSTRUMENT === 'true'
+rumConfig.logLevel = process.env.REACT_APP_ELASTIC_APM_LOG_LEVEL || 'debug'
+rumConfig.monitorLongtasks = process.env.REACT_APP_ELASTIC_APM_MONITOR_LONGTASKS === 'true'
+rumConfig.transactionSampleRate = Number(process.env.REACT_APP_ELASTIC_APM_TRANSACTION_SAMPLE_RATE) || 1.0
 
 var apm = initApm(rumConfig)
 
@@ -79,3 +66,5 @@ try {
 } catch (e) {
     apm.captureError(e)
 }
+
+console.log('Configured RUM agent')

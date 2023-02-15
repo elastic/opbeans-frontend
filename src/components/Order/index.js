@@ -8,11 +8,12 @@ import './style.css';
 
 import OrderDetail from '../OrderDetail';
 import * as orderActions from '../../actions/orderActions';
+import { withTransaction } from '@elastic/apm-rum-react'
 
 class Order extends Component {
 
     componentDidMount() {
-        this.props.actions.loadOrder(this.props.params.id);
+        this.props.actions.loadOrder(this.props.orderId);
     }
 
     render() {
@@ -45,4 +46,4 @@ function mapDispatchToProps(dispatch) {
     return {actions: bindActionCreators(orderActions, dispatch)}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Order);
+export default withTransaction('Orders', 'Component')(connect(mapStateToProps, mapDispatchToProps)(Order));

@@ -8,11 +8,12 @@ import './style.css';
 
 import ProductDetail from '../ProductDetail';
 import * as productActions from '../../actions/productActions';
+import { withTransaction } from '@elastic/apm-rum-react'
 
 class Product extends Component {
 
     componentDidMount() {
-        this.props.actions.loadProduct(this.props.params.id);
+        this.props.actions.loadProduct(this.props.productId);
     }
 
     componentWillUnmount() {
@@ -52,4 +53,4 @@ function mapDispatchToProps(dispatch) {
     return {actions: bindActionCreators(productActions, dispatch)}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default withTransaction('Products', 'Component')(connect(mapStateToProps, mapDispatchToProps)(Product))

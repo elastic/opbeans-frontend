@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import { useParams,Route, Navigate, Routes } from 'react-router-dom'
-import { withTransaction } from '@elastic/apm-rum-react'
 
 import AppHeader from '../AppHeader';
 import AppFooter from '../AppFooter';
@@ -55,7 +54,7 @@ class App extends Component {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductId />} />
           <Route path="/orders" element={<Orders />} />
-          <Route path="/orders/:id" element={<OrderId />} /> 
+          <Route path="/orders/:id" element={<OrderId />} />
           <Route path="/customers" element={ <Customers />} />
           <Route path="/customers/:id" element={<CustomerId />} />
           <Route element={NotFound} />

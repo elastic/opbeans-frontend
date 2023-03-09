@@ -21,7 +21,9 @@ class AppFooter extends Component {
                               <NavLink className="item" style={({ isActive }) => isActive ? {textDecoration: "underline"} : undefined} to="/dashboard">
                                   Dashboard
                               </NavLink>
+                              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                               <a href="#" onClick={ this.getSettingsWindow } className="item">Settings</a>
+                              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                               <a href="#" className="item disabled">Log out</a>
                           </div>
                       </div>

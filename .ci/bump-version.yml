@@ -1,0 +1,54 @@
+---
+## Workflow to periodically check if there is an available newer APM agent version, e.g.
+## "1.2.3". If so, then update to it.
+name: Bump elastic-apm to latest version
+
+title: Bump elastic-apm to latest version
+
+scms:
+  githubConfig:
+    kind: github
+    spec:
+      user: '{{ requiredEnv "GIT_USER" }}'
+      email: '{{ requiredEnv "GIT_EMAIL" }}'
+      owner: elastic
+      repository: opbeans-frontend
+      token: '{{ requiredEnv "GITHUB_TOKEN" }}'
+      username: '{{ requiredEnv "GIT_USER" }}'
+      branch: main
+
+actions:
+  opbeans-frontend:
+    kind: github/pullrequest
+    scmid: githubConfig
+    spec:
+      automerge: false
+      labels:
+        - dependencies
+
+sources:
+  elastic-apm-rum:
+    name: Get latest elastic/apm-rum version from npm registry
+    kind: npm
+    spec:
+      name: "@elastic/apm-rum"
+
+targets:
+  dockerfile:
+    name: Set org.label-schema.version in Dockerfile
+    sourceid: elastic-apm-rum
+    scmid: githubConfig
+    kind: file
+    spec:
+      file: Dockerfile
+      matchpattern: 'org\.label-schema\.version="@elastic/apm-rum@(\d+.\d+.\d+)"'
+      replacepattern: org.label-schema.version="@elastic/apm-rum@{{ source `elastic-apm-rum` }}"
+  package_json:
+    name: Install new elastic-apm npm dependency version
+    sourceid: elastic-apm-rum
+    scmid: githubConfig
+    kind: file
+    spec:
+      file: package.json
+      matchpattern: 'apm-rum": "(\^\d+.\d+.\d+)'
+      replacepattern: 'apm-rum": "^{{ source `elastic-apm-rum` }}'

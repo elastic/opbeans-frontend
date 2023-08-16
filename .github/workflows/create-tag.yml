@@ -8,7 +8,7 @@ on:
     branches:
       - main
     paths:
-      - requirements.txt
+      - package.json
 
 permissions:
   contents: write
@@ -21,7 +21,7 @@ jobs:
         with:
           fetch-depth: 0 # also fetch tags
       - run: |
-          ELASTIC_APM_VERSION="v$(cat requirements.txt | grep "elastic-apm==" | awk 'BEGIN { FS = "==" }; { print $2 }')"
+          ELASTIC_APM_VERSION="$(grep 'elastic/apm-rum"' package.json | cut -d":" -f2 | sed 's# "##g' | sed 's#",##g')"
           # if the tag does not exist
           if [[ ! $(git tag -l "${ELASTIC_APM_VERSION}") ]]; then
             git tag ${ELASTIC_APM_VERSION}

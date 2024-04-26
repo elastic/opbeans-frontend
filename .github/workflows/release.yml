@@ -2,7 +2,7 @@ name: release
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "test-provenance" ]
   create:
     tags: [ "v*" ]
 
@@ -37,7 +37,7 @@ jobs:
       with:
         images: ${{ env.DOCKER_IMAGE_NAME }}
         tags: |
-          type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+          type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'test-provenance') }}
           # tag event
           type=ref,enable=true,prefix=,suffix=,event=tag
 

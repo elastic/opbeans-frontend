@@ -3,8 +3,6 @@
 ## "1.2.3". If so, then update to it.
 name: Bump elastic-apm to latest version
 
-title: Bump elastic-apm to latest version
-
 scms:
   githubConfig:
     kind: github

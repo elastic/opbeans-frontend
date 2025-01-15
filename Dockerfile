@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 RUN apk update && \
     apk --no-cache add git && \
@@ -8,7 +8,7 @@ ENV NODE_ENV=production
 ENV ELASTIC_APM_JS_BASE_SERVICE_NAME=opbeans-react
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 
-RUN npm install npm@latest -g 
+RUN npm install npm@v11.0.0 -g
 
 WORKDIR /app
 COPY . /app

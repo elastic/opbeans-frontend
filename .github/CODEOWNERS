@@ -1,0 +1,5 @@
+# Default owner
+* @elastic/apm-agent-rum
+
+# Sub-directories/files ownership
+/.github/workflows @elastic/observablt-ci

@@ -11,7 +11,7 @@ updates:
       day: "sunday"
       time: "22:00"
     cooldown:
-      days: 14
+      default-days: 14
 
   # Enable version updates for Docker
   - package-ecosystem: "docker"

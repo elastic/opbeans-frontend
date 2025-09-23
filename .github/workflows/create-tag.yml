@@ -27,7 +27,7 @@ jobs:
         with:
           app-id: ${{ secrets.OBS_AUTOMATION_APP_ID }}
           private-key: ${{ secrets.OBS_AUTOMATION_APP_PEM }}
-          permissions-contents: write
+          permission-contents: write
 
       - run: make create-release
         env:

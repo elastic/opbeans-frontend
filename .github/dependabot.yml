@@ -10,8 +10,8 @@ updates:
       interval: "weekly"
       day: "sunday"
       time: "22:00"
-    reviewers:
-      - "elastic/apm-agent-rum"
+    cooldown:
+      default-days: 14
 
   # Enable version updates for Docker
   - package-ecosystem: "docker"
@@ -21,14 +21,10 @@ updates:
       interval: "weekly"
       day: "sunday"
       time: "22:00"
-    reviewers:
-      - "elastic/apm-agent-rum"
 
   # GitHub actions
   - package-ecosystem: "github-actions"
     directory: "/"
-    reviewers:
-      - "elastic/observablt-ci"
     schedule:
       interval: "weekly"
       day: "sunday"

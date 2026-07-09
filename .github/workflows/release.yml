@@ -3,31 +3,60 @@ name: release
 on:
   push:
     branches: [ "main" ]
-  create:
     tags: [ "v*" ]
 
 permissions:
   contents: read
 
+env:
+  DOCKER_IMAGE_NAME: opbeans/opbeans-frontend
+
 jobs:
 
   release:
     runs-on: ubuntu-latest
-
+    permissions:
+      artifact-metadata: write
+      attestations: write
+      contents: read
+      id-token: write
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
 
-    - uses: elastic/apm-pipeline-library/.github/actions/docker-login@current
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v4
+
+    - name: Log in to the Container registry
+      uses: docker/login-action@650006c6eb7dba73a995cc03b0b2d7f5ca915bee # v4.2.0
       with:
-        registry: docker.io
-        secret: secret/apm-team/ci/elastic-observability-dockerhub
-        url: ${{ secrets.VAULT_ADDR }}
-        roleId: ${{ secrets.VAULT_ROLE_ID }}
-        secretId: ${{ secrets.VAULT_SECRET_ID }}
+        registry: ${{ secrets.DOCKERHUB_REGISTRY }}
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-    - name: Set version if tags
-      run: echo "VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-      if: startsWith(github.ref, 'refs/tags/v')
+    - name: Extract metadata (tags, labels)
+      id: docker-meta
+      uses: docker/metadata-action@80c7e94dd9b9319bd5eb7a0e0fe9291e23a2a2e9  # v6.1.0
+      with:
+        images: ${{ env.DOCKER_IMAGE_NAME }}
+        tags: |
+          type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+          # tag event
+          type=ref,enable=true,prefix=,suffix=,event=tag
 
-    - name: Run publish
-      run: make publish
+    - name: Build and push image
+      id: docker-push
+      uses: docker/build-push-action@f9f3042f7e2789586610d6e8b85c8f03e5195baf  # v7.2.0
+      with:
+        context: .
+        provenance: mode=max
+        push: true
+        sbom: true
+        tags: ${{ steps.docker-meta.outputs.tags }}
+        labels: ${{ steps.docker-meta.outputs.labels }}
+
+    - name: Attest image
+      uses: actions/attest@v4
+      with:
+        subject-name: index.docker.io/${{ env.DOCKER_IMAGE_NAME }}
+        subject-digest: ${{ steps.docker-push.outputs.digest }}
+        push-to-registry: true

@@ -9,13 +9,13 @@ CONTAINER="opbeans-frontend"
 
 @test "build image" {
 	cd $BATS_TEST_DIRNAME/..
-	run docker-compose build
+	run docker compose build
 	assert_success
 }
 
 @test "create test container" {
 	export OPBEANS_SERVER_PORT=${PORT}
-	run docker-compose up -d
+	run docker compose up -d
 	assert_success
 }
 
@@ -37,6 +37,6 @@ CONTAINER="opbeans-frontend"
 }
 
 @test "clean test containers" {
-	run docker-compose down
+	run docker compose down
 	assert_success
 }

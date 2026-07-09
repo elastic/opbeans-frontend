@@ -11,10 +11,13 @@ on:
 permissions:
   contents: read
   actions: read
-  checks: write
 
 jobs:
   report:
+    permissions:
+      contents: read
+      actions: read
+      checks: write
     runs-on: ubuntu-latest
     steps:
       - uses: elastic/apm-pipeline-library/.github/actions/test-report@current
